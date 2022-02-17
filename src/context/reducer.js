@@ -21,10 +21,13 @@ const reducer = (state, action) => {
   }
 
   if (action.type === REGISTER_USER_SUCCESS) {
+    
+    localStorage.setItem('uid',action.payload.uid)
     return {
       ...state,
       isLoading: false,
-      user: action.payload,
+      user: action.payload.email,
+      uid: action.payload.uid,
     }
   }
   if (action.type === REGISTER_USER_ERROR) {
@@ -67,7 +70,7 @@ const reducer = (state, action) => {
     return {
       ...state,
       isLoading: false,
-      jobs: [...state.jobs, action.payload],
+      jobs: [...action.payload],
     }
   }
   if (action.type === CREATE_JOB_ERROR) {
@@ -98,7 +101,7 @@ const reducer = (state, action) => {
       ...state,
       isLoading: false,
       editComplete: true,
-      editItem: action.payload,
+      jobs: action.payload,
     }
   }
   if (action.type === EDIT_JOB_ERROR) {

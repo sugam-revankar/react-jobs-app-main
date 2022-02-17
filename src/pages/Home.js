@@ -18,10 +18,7 @@ function Home() {
           <div className='info'>
             <h1>job tracking app</h1>
             <p>
-              I'm baby viral enamel pin chartreuse cliche retro af selfies
-              kinfolk photo booth plaid jianbing actually squid 3 wolf moon
-              lumbersexual. Hell of humblebrag gluten-free lo-fi man braid
-              leggings.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique voluptates deleniti laboriosam mollitia? Ipsum, soluta voluptas deserunt suscipit possimus vitae accusamus commodi reiciendis officiis. Vel quasi maiores accusamus laboriosam eligendi?
             </p>
 
             <Link to='/register' className='btn hero-btn'>

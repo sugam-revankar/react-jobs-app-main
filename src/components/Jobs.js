@@ -3,16 +3,16 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { FaEdit, FaTrash } from 'react-icons/fa'
-import moment from 'moment'
+
 import JobColumns from './JobColumns'
 
 const Jobs = () => {
   const { jobs, isLoading, deleteJob } = useGlobalContext()
-
+  
   if (isLoading) {
     return <div className="loading"></div>
   }
-
+  
   if (jobs.length < 1) {
     return (
       <EmptyContainer>
@@ -29,15 +29,17 @@ const Jobs = () => {
       <JobColumns />
       <Container>
         {jobs.map((item) => {
-          const { _id: id, company, position, status, createdAt } = item
-          let date = moment(createdAt)
-          date = date.format('MMMM Do, YYYY')
+          const { id, company, position, status, createdAt } = item
+          
+
+          // let date = moment(createdAt)
+          // date = date.format('MMMM Do, YYYY')
           return (
             <article key={id} className="job">
-              <span className="icon">{company.charAt(0)}</span>
-              <span className="position">{position.toLowerCase()}</span>
+               {/* <span className="icon">{company.charAt(0)}</span>  */}
+              <span className="position">{position}</span>
               <span className="company">{company}</span>
-              <span className="date">{date}</span>
+              <span className="date">{createdAt}</span>
               <StatusContainer className="status" status={status}>
                 {status}
               </StatusContainer>

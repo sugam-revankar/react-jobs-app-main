@@ -39,6 +39,8 @@ function Update() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { company, position, status } = values;
+    console.log("const { company, position, status } = values;: ",   company, position, status);
+    
     if (company && position) {
       editJob(id, { company, position, status });
     }
@@ -46,7 +48,6 @@ function Update() {
   if (isLoading && !editItem) {
     return <div className='loading'></div>;
   }
-
   if (!editItem || error) {
     return (
       <>

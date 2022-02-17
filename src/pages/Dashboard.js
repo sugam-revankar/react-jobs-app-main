@@ -7,13 +7,10 @@ import Jobs from '../components/Jobs';
 
 function Dashboard() {
   const [values, setValues] = useState({ company: '', position: '' });
-
+  const { isLoading, showAlert, fetchJobs, createJob } = useGlobalContext(); 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
-
-  const { isLoading, showAlert, fetchJobs, createJob } = useGlobalContext();
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const { company, position } = values;
@@ -22,9 +19,12 @@ function Dashboard() {
       setValues({ company: '', position: '' });
     }
   };
+
+
   useEffect(() => {
     fetchJobs();
   }, []);
+
   return (
     <>
       <Navbar />
